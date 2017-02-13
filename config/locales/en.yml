@@ -1,0 +1,7 @@
+en:
+  process_size: "Process size: %{process_size} / %{max_process_size}"
+  queue_size: "Queue size: %{queue_size}"
+  ok: "OK. %{message}"
+  warning:
+    too_many_jobs_enqueued: "WARNING. Too many jobs enqueued. %{message}"
+    unexpected_number_of_processes: "WARNING. Unexpected number of processes. %{message}"
