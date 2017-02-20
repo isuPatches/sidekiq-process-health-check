@@ -32,10 +32,12 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'capybara'
   spec.add_development_dependency 'capybara-webkit'
+  spec.add_development_dependency 'codeclimate-test-reporter', '~> 1.0.0'
   spec.add_development_dependency 'launchy'
   spec.add_development_dependency 'listen'
   spec.add_development_dependency 'rspec-rails'
   spec.add_development_dependency 'sqlite3'
   spec.add_development_dependency 'sidekiq', '~> 4'
+  spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'webmock'
 end
