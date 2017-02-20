@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  #mount Sidekiq::Process::Check::Engine => '/health/sidekiq'
+  mount Sidekiq::ProcessHealth::Check::Engine => '/mountable'
 
   namespace :health do
     get '/sidekiq', :to => 'sidekiq#show'

@@ -1,4 +1,4 @@
 Sidekiq::ProcessHealth::Check::Engine.routes.draw do
-  resources :controller, only: :show
-  root to: '#show'
+  get '/health/sidekiq', to: 'mountable#show'
+  root to: 'mountable#show'
 end
