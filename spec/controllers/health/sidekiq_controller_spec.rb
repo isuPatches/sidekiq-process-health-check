@@ -9,7 +9,7 @@ describe Health::SidekiqController do
         get :show
       end
 
-      it { expect(response.body).to include(I18n.t('ok', message: I18n.t('queue_size', queue_size: 1))) }
+      it { expect(response.body).to include(I18n.t('ok', message: I18n.t('queue_size', queue_size: 1, job_threshold: 50))) }
       it { expect(response.body).to include(I18n.t('ok', message: I18n.t('process_size', process_size: 1, max_process_size: 1))) }
     end
 
@@ -20,7 +20,7 @@ describe Health::SidekiqController do
         get :show
       end
 
-      it { expect(response.body).to include(I18n.t('warning.too_many_jobs_enqueued', message: I18n.t('queue_size', queue_size: 50))) }
+      it { expect(response.body).to include(I18n.t('warning.too_many_jobs_enqueued', message: I18n.t('queue_size', queue_size: 50, job_threshold: 50))) }
       it { expect(response.body).to include(I18n.t('warning.unexpected_number_of_processes', message: I18n.t('process_size', process_size: 0, max_process_size: 1))) }
     end
   end
