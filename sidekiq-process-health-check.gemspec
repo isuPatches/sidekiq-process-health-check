@@ -18,7 +18,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'rails', '>= 5'
   spec.add_dependency 'responders', '~> 2.0'
-  spec.add_dependency 'figaro'
   spec.add_dependency 'sidekiq', '~> 4'
 
   spec.add_development_dependency 'capybara'
