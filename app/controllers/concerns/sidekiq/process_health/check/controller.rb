@@ -12,8 +12,8 @@ module Sidekiq
         private
           def process_status
             process_size = number_of_active_processes
-            process_size_details = t('process_size', process_size: process_size, max_process_size: expected_number_of_processes)
-            if process_size == expected_number_of_processes
+            process_size_details = t('process_size', process_size: process_size, max_process_size: Sidekiq::ProcessHealth::Check.configuration.expected_number_of_processes)
+            if process_size == Sidekiq::ProcessHealth::Check.configuration.expected_number_of_processes
               t('ok', message: process_size_details)
             else
               t('warning.unexpected_number_of_processes', message: process_size_details)
@@ -23,7 +23,7 @@ module Sidekiq
           def queue_status
             queue_size = number_of_enqueued_jobs
             queue_size_details = t('queue_size', queue_size: queue_size)
-            if queue_size < job_threshold
+            if queue_size < Sidekiq::ProcessHealth::Check.configuration.job_threshold
               t('ok', message: queue_size_details)
             else
               t('warning.too_many_jobs_enqueued', message: queue_size_details)

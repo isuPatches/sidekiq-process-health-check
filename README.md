@@ -1,15 +1,29 @@
-# Sidekiq::Process::Check
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/sidekiq/process/check`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Build Status](https://travis-ci.org/isuPatches/sidekiq-process-health-check.svg?branch=master)](https://travis-ci.org/isuPatches/sidekiq-process-health-check)
 
-TODO: Delete this and the text above, and describe your gem
+[![Code Climate](https://codeclimate.com/github/isuPatches/sidekiq-process-health-check/badges/gpa.svg)](https://codeclimate.com/github/isuPatches/sidekiq-process-health-check)
+
+[![Test Coverage](https://codeclimate.com/github/isuPatches/sidekiq-process-health-check/badges/coverage.svg)](https://codeclimate.com/github/isuPatches/sidekiq-process-health-check/coverage)
+
+[![Issue Count](https://codeclimate.com/github/isuPatches/sidekiq-process-health-check/badges/issue_count.svg)](https://codeclimate.com/github/isuPatches/sidekiq-process-health-check)
+
+[![Dependency Status](https://gemnasium.com/badges/github.com/isuPatches/sidekiq-process-health-check.svg)](https://gemnasium.com/github.com/isuPatches/sidekiq-process-health-check)
+
+
+# Sidekiq::ProcessHealth::Check
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add one of the following lines to your application's Gemfile:
 
 ```ruby
 gem 'sidekiq-process-health-check'
+```
+
+or 
+
+```ruby
+gem 'sidekiq-process-health-check', git: 'https://github.com/isuPatches/sidekiq-process-health-check'
 ```
 
 And then execute:
@@ -22,17 +36,30 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Configuration
+
+There are two main configuration options for this gem...they are expected_number_of_processes and job_threshold.
+
+All you need is an initializer to override the defaults:
+
+```ruby
+ Sidekiq::ProcessHealth::Check.configure do |config|
+    config.expected_number_of_processes = 4
+    config.job_threshold = 10
+  end
+```
+
+By default expected_number_of_processes will be 1 and job_threshold will be 50.
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bundle install` to install dependencies. Then, run `bundle exec rspec` to run the tests.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/sidekiq-process-check. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/isuPatches/sidekiq-process-health-check. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License

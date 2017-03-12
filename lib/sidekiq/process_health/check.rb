@@ -1,28 +1,25 @@
 require 'sidekiq/process_health/check/version'
 require 'sidekiq/process_health/check/engine'
+require 'sidekiq/process_health/check/configuration'
 require 'sidekiq/api'
 
 module Sidekiq
   module ProcessHealth
     module Check
 
-      DEFAULT_JOB_THRESHOLD = 50
+      class << self
+        attr_writer :configuration
 
-      DEFAULT_EXPECTED_PROCESS_NUMBER = 1
-
-      def expected_number_of_processes
-        if ENV['SIDEKIQ_PROCESS_CHECK_EXPECTED_PROCESS_NUMBER'].present?
-          ENV['SIDEKIQ_PROCESS_CHECK_EXPECTED_PROCESS_NUMBER'].to_i
-        else
-          DEFAULT_EXPECTED_PROCESS_NUMBER
+        def configuration
+          @configuration ||= Configuration.new
         end
-      end
 
-      def job_threshold
-        if ENV['SIDEKIQ_PROCESS_CHECK_JOB_THRESHOLD'].present?
-          ENV['SIDEKIQ_PROCESS_CHECK_JOB_THRESHOLD'].to_i
-        else
-          DEFAULT_JOB_THRESHOLD
+        def reset
+          @configuration = Configuration.new
+        end
+
+        def configure
+          yield(configuration)
         end
       end
 
