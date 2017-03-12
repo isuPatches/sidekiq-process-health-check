@@ -1,3 +1,4 @@
+[![Gem Version](https://badge.fury.io/rb/sidekiq-process-health-check.svg)](https://badge.fury.io/rb/sidekiq-process-health-check)
 
 [![Build Status](https://travis-ci.org/isuPatches/sidekiq-process-health-check.svg?branch=master)](https://travis-ci.org/isuPatches/sidekiq-process-health-check)
 
