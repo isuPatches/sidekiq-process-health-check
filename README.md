@@ -28,11 +28,17 @@ gem 'sidekiq-process-health-check', git: 'https://github.com/isuPatches/sidekiq-
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
     $ gem install sidekiq-process-health-check
+    
+Add the following to your application.rb:
+
+```ruby
+require 'sidekiq/process_health/check'
+```
 
 ## Usage
 
@@ -51,6 +57,33 @@ All you need is an initializer to override the defaults:
 
 By default expected_number_of_processes will be 1 and job_threshold will be 50.
 
+### Mounting
+
+There are two options for mounting the routes required.  There is an engine you can mount in routes.rb:
+
+```ruby
+  mount Sidekiq::ProcessHealth::Check::Engine => '/'
+```
+    
+Or you can include the concern in a controller as shown below:
+   
+```ruby
+module Health
+  class SidekiqController < ApplicationController
+    respond_to :json
+    include Sidekiq::ProcessHealth::Check::Controller
+  end
+end
+```
+
+And update the routes.rb:
+    
+```ruby
+namespace :health do
+  get '/sidekiq', :to => 'sidekiq#show'
+end
+```
+  
 ## Development
 
 After checking out the repo, run `bundle install` to install dependencies. Then, run `bundle exec rspec` to run the tests.

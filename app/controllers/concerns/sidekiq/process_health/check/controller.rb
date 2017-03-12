@@ -22,7 +22,7 @@ module Sidekiq
 
           def queue_status
             queue_size = number_of_enqueued_jobs
-            queue_size_details = t('queue_size', queue_size: queue_size)
+            queue_size_details = t('queue_size', queue_size: queue_size, threshold: Sidekiq::ProcessHealth::Check.configuration.job_threshold)
             if queue_size < Sidekiq::ProcessHealth::Check.configuration.job_threshold
               t('ok', message: queue_size_details)
             else
