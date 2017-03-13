@@ -1,3 +1,13 @@
+# Sidekiq::ProcessHealth::Check
+
+> <br/>*Developed by Patches 02/13/2017 - present* <br/>
+> 
+> <br/>Sidekiq: 4.2.9
+> <br/>Rails: 5.0.2
+> <br/>Ruby: 2.4<br/><br/>
+
+Please check the [Wiki](https://github.com/isuPatches/sidekiq-process-health-check/wiki/) for rules on contributing and how to report issues.
+
 [![Gem Version](https://badge.fury.io/rb/sidekiq-process-health-check.svg)](https://badge.fury.io/rb/sidekiq-process-health-check)
 
 [![Build Status](https://travis-ci.org/isuPatches/sidekiq-process-health-check.svg?branch=master)](https://travis-ci.org/isuPatches/sidekiq-process-health-check)
@@ -9,9 +19,6 @@
 [![Issue Count](https://codeclimate.com/github/isuPatches/sidekiq-process-health-check/badges/issue_count.svg)](https://codeclimate.com/github/isuPatches/sidekiq-process-health-check)
 
 [![Dependency Status](https://gemnasium.com/badges/github.com/isuPatches/sidekiq-process-health-check.svg)](https://gemnasium.com/github.com/isuPatches/sidekiq-process-health-check)
-
-
-# Sidekiq::ProcessHealth::Check
 
 ## Installation
 
