@@ -13,6 +13,14 @@
 
 # Sidekiq::ProcessHealth::Check
 
+> <br/>*Developed by Patches 02/13/2017 - present* <br/>
+> 
+> <br/>Sidekiq: 4.2.9
+> <br/>Rails: 5.0.2
+> <br/>Ruby: 2.4<br/><br/>
+
+Please check the [Wiki](https://github.com/isuPatches/sidekiq-process-health-check/wiki/) for rules on contributing and how to report issues.
+
 ## Installation
 
 Add one of the following lines to your application's Gemfile:
