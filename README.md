@@ -70,7 +70,7 @@ By default expected_number_of_processes will be 1 and job_threshold will be 50.
 There are two options for mounting the routes required.  There is an engine you can mount in routes.rb:
 
 ```ruby
-  mount Sidekiq::ProcessHealth::Check::Engine => '/'
+  mount Sidekiq::ProcessHealth::Check::Engine => '/health'
 ```
     
 Or you can include the concern in a controller as shown below:
